@@ -28,3 +28,22 @@ OK / Cancel  - OK버튼을 누르면 로그인창으로 이동
 판매 나눔 페이지 (41)
 레이아웃 관련물어보기
 
+----0422-----
+
+<깃 remote 만드는 법>
+1. remote 추가
+	git remote add [별명] https://github.com/wafflu/teamlog.git
+
+2. remote 확인
+	git remote -v
+
+------------------------------------------------------------------------------
+|  $ git remote -v									  |
+|  origin  https://github.com/[본인깃id]/teamlog.git (fetch) => 내꺼    |
+|  origin  https://github.com/[본인깃id]/teamlog.git (push)		  |
+|  [별명]  https://github.com/wafflu/teamlog.git (fetch) => 팀장꺼  |
+|  [별명]  https://github.com/wafflu/teamlog.git (push)                  |
+------------------------------------------------------------------------------
+
+3. pull 하기
+	git pull [별명] master
