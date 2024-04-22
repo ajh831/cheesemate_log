@@ -636,18 +636,12 @@ CREATE TABLE `img` (
   `last_r_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `last_idno` varchar(10) NOT NULL,
   PRIMARY KEY (`sn`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='이미지저장소';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='이미지저장소';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `img`
 --
-
-LOCK TABLES `img` WRITE;
-/*!40000 ALTER TABLE `img` DISABLE KEYS */;
-INSERT INTO `img` VALUES (2,'','/Users/jehyeon/Desktop/학원/Spring/sp_legacy/src/main/webapp/WEB-INF/uploads','s_4838e734-671e-44f6-afc2-5bbce0d4279a_','adasd','.jpeg',292,292,'2024-04-21 05:12:16','Y','2024-04-21 05:12:16','admin','2024-04-21 05:12:16','admin');
-/*!40000 ALTER TABLE `img` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `jjim`
