@@ -1,11 +1,11 @@
 # 공지사항 모음
 ## Index
-- [:loudspeaker: 0422 공지사항](#:loudspeaker:-0422-공지사항)
+- [:loudspeaker: 0422 공지사항](#0422-공지사항)
 - [:loudspeaker: 0423 공지사항](#0423-공지사항)
 
 <br><br>
 
-#:loudspeaker:-0422-공지사항
+# 0422-공지사항
 
 Mail_classify
 
