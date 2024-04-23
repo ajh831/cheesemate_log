@@ -85,7 +85,7 @@ origin  https://github.com/[본인깃id]/teamlog.git (push)
 		- grant_date를 null로 변경
 
 
-# :loudspeaker: 0423-공지사항
+# 0423-공지사항
 
 DROP TABLE IF EXISTS `qty_conditions`;
 
