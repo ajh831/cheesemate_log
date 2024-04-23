@@ -87,3 +87,21 @@ CREATE TABLE `qty_conditions` (
 `last_r_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `last_idno` varchar(10) NOT NULL
 );
+
+<테이블 변경 빠진거>
+1. alter table sale change biding bid_cd char;
+2. biding_history 테이블
+	- grant_date를 null로 변경
+	  - alter table biding_history modify grant_date timestamp NULL;
+3. sale 테이블
+	- up_cnt를 hoist_cnt로 변경
+	  - alter table sale change up_cnt hoist_cnt int;
+	- hoisting을 h_date로 변경
+	  - alter table sale change hoisting h_date timestamp;
+	- prop_cnt를 bid_cnt로 변경
+	  - alter table sale change prop_cnt bid_cnt int;
+	- app_cnt를 삭제
+	  - alter table sale drop column app_cnt;
+4. hoisting_history 테이블
+	- hoisting을 h_date로 변경
+	  - alter table hoisting_history change hoisting h_date timestamp;
