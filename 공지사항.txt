@@ -1,3 +1,4 @@
+------------------------0422-------------------------
 Mail_classify
 
 sale_img <- 교차에 넣어야하나?
@@ -72,3 +73,17 @@ OK / Cancel  - OK버튼을 누르면 로그인창으로 이동
 		- grand_state 컬럼명을 grant_state로 변경
 		- price를 null로 변경
 		- grant_date를 null로 변경
+
+
+------------------------0423-------------------------
+
+DROP TABLE IF EXISTS `qty_conditions`;
+
+CREATE TABLE `qty_conditions` (
+`qty_name` varchar(50) NULL,
+`qty` int,
+`first_r_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`first_idno` varchar(10) NOT NULL,
+`last_r_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`last_idno` varchar(10) NOT NULL
+);
