@@ -870,3 +870,40 @@ INSERT INTO testdb.sale_category (sal_cd, name, state, first_date, first_id, las
 INSERT INTO testdb.sale_category (sal_cd, name, state, first_date, first_id, last_date, last_id) VALUES ('023017', '기타(반려동물 용품)', 'Y', null, null, null, null);
 INSERT INTO testdb.sale_category (sal_cd, name, state, first_date, first_id, last_date, last_id) VALUES ('023018', '기타(반려동물 사료/간식)', 'Y', null, null, null, null);
 INSERT INTO testdb.sale_category (sal_cd, name, state, first_date, first_id, last_date, last_id) VALUES ('024', '기타', 'Y', null, null, null, null);
+
+alter table sale drop column tag;
+alter table sale change biding bid_cd char;
+
+alter table sale_history modify addr_name varchar(20) not null;
+alter table sale_history drop column addr_nm;
+alter table sale_history drop column tag;
+
+alter table sale_history modify trade_s_cd_2 varchar(10) null;
+
+alter table sale_history modify buy_id varchar(25) null;
+alter table sale_history modify buy_nick varchar(25) null;
+
+rename table user_info1 to user_info;
+
+alter table addr_c alter column state set default 'N';
+
+alter table biding_history change grand_state grant_state char default 'N' not null comment 'Y: 승인/N: 미승인';
+alter table biding_history modify price int null;
+alter table biding_history modify grant_date int null;
+
+
+alter table sale change biding bid_cd char;
+alter table biding_history modify grant_date timestamp null comment '가격 제시를 승인한 일자';
+alter table sale change up_cnt hoist_cnt int default 0 null comment '작성자가 글을 끌어올린 횟 수';
+alter table sale change prop_cnt bid_cnt int default 0 null;
+alter table sale change hoisting h_date timestamp null comment '판매글 끌어올리기일';
+alter table sale drop column app_cnt;
+alter table hoisting_history change hoisting h_date timestamp not null;
+
+alter table sale_history modify pickup_addr_cd varchar(8) null;
+alter table sale_history modify pickup_addr_name varchar(8) null;
+alter table sale_history modify detail_addr varchar(8) null;
+alter table sale alter column ad_state set default 'N';
+alter table sale modify bid_cd varchar(10) not null;
+alter table biding modify bid_cd varchar(10) not null;
+alter table biding_history modify bid_cd varchar(10) not null;
