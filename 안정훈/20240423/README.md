@@ -1,4 +1,12 @@
-------------------------0422-------------------------
+# 공지사항 모음
+## Index
+- [:loudspeaker: 0422 공지사항](#0422-공지사항)
+- [:loudspeaker: 0423 공지사항](#0423-공지사항)
+
+<br><br>
+
+# :loudspeaker: 0422-공지사항
+
 Mail_classify
 
 sale_img <- 교차에 넣어야하나?
@@ -29,7 +37,7 @@ OK / Cancel  - OK버튼을 누르면 로그인창으로 이동
 판매 나눔 페이지 (41)
 레이아웃 관련물어보기
 
-----0422-----
+---
 
 <깃 remote 만드는 법>
 1. remote 추가
@@ -38,19 +46,21 @@ OK / Cancel  - OK버튼을 누르면 로그인창으로 이동
 2. remote 확인
 	git remote -v
 
-------------------------------------------------------------------------------
-|  $ git remote -v									  |
-|  origin  https://github.com/[본인깃id]/teamlog.git (fetch) => 내꺼    |
-|  origin  https://github.com/[본인깃id]/teamlog.git (push)		  |
-|  [별명]  https://github.com/wafflu/teamlog.git (fetch) => 팀장꺼  |
-|  [별명]  https://github.com/wafflu/teamlog.git (push)                  |
-------------------------------------------------------------------------------
+```
+$ git remote -v
+origin  https://github.com/[본인깃id]/teamlog.git (fetch) => 내꺼
+origin  https://github.com/[본인깃id]/teamlog.git (push)
+[별명]  https://github.com/wafflu/teamlog.git (fetch) => 팀장꺼
+[별명]  https://github.com/wafflu/teamlog.git (push)
+```
 
 3. pull 하기
 	git pull [별명] master
 
 
+---
 <테이블 수정>
+
 	1. sale
 		- tag 컬럼 삭제
 		- biding 컬럼명 bid_cd로 변경
@@ -75,7 +85,7 @@ OK / Cancel  - OK버튼을 누르면 로그인창으로 이동
 		- grant_date를 null로 변경
 
 
-------------------------0423-------------------------
+# :loudspeaker: 0423-공지사항
 
 DROP TABLE IF EXISTS `qty_conditions`;
 
