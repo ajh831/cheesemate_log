@@ -91,16 +91,7 @@ origin  https://github.com/[본인깃id]/teamlog.git (push)
 
 # 0423-공지사항
 
-DROP TABLE IF EXISTS `qty_conditions`;
-
-CREATE TABLE `qty_conditions` (
-`qty_name` varchar(50) NULL,
-`qty` int,
-`first_r_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-`first_idno` varchar(10) NOT NULL,
-`last_r_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`last_idno` varchar(10) NOT NULL
-);
+정렬기준 테이블 변경
 
 <테이블 변경 빠진거>
 
@@ -123,48 +114,10 @@ CREATE TABLE `qty_conditions` (
 
 # 0424-공지사항
 
-#1 first_id - null 값 허용으로 변경
+1. first_id - null 값 허용으로 변경
 
-alter table Mail_classify MODIFY column first_id varchar(10) null;
-alter table admin_login_history MODIFY column first_id varchar(10) null;
-alter table admin_modify_history MODIFY column first_id varchar(10) null;
-alter table biding_history MODIFY column first_id varchar(10) null;
-alter table biding MODIFY column first_id varchar(10) null;
-alter table blacklist MODIFY column first_id varchar(10) null;
-alter table chat_msg MODIFY column first_id varchar(10) null;
-alter table chat_room MODIFY column first_id varchar(10) null;
-alter table comment MODIFY column first_id varchar(10) null;
-alter table community_img MODIFY column first_id varchar(10) null;
-alter table community_tag MODIFY column first_id varchar(10) null;
-alter table event_record MODIFY column first_id varchar(10) null;
-alter table event MODIFY column first_id varchar(10) null;
-alter table hoisting_history MODIFY column first_id varchar(10) null;
-alter table jjim MODIFY column first_id varchar(10) null;
-alter table mail MODIFY column first_id varchar(10) null;
-alter table mail_recode MODIFY column first_id varchar(10) null;
-alter table post MODIFY column first_id varchar(10) null;
-alter table addr_cd MODIFY column first_id varchar(10) null;
-alter table commu MODIFY column first_id varchar(10) null;
-alter table qnalist_board MODIFY column first_id varchar(10) null;
-alter table qty_conditions change first_idno first_id varchar(10) null;
-alter table question_board MODIFY column first_id varchar(10) null;
-alter table question_category MODIFY column first_id varchar(10) null;
-alter table report MODIFY column first_id varchar(10) null;
-alter table review_comment MODIFY column first_id varchar(10) null;
-alter table sale_history MODIFY column first_id varchar(10) null;
-alter table sale_img MODIFY column first_id varchar(10) null;
-alter table img MODIFY column first_id varchar(10) null;
-alter table sale_tag MODIFY column first_id varchar(10) null;
-alter table sale MODIFY column first_id varchar(10) null;
-alter table administrative MODIFY column first_id varchar(10) null;
-alter table sale_category MODIFY column first_id varchar(10) null;
-alter table spamlist MODIFY column first_id varchar(10) null;
-alter table standardcode MODIFY column first_id varchar(10) null;
-alter table tag MODIFY column first_id varchar(10) null;
-alter table tb_standard MODIFY column first_id varchar(10) null;
-alter table user_info MODIFY column first_id varchar(10) null;
-alter table user MODIFY column first_id varchar(10) null;
-alter table user_login_history MODIFY column first_id varchar(10) null;
-alter table user_modify_history MODIFY column first_id varchar(10) null;
-alter table administer MODIFY column first_id varchar(10) null;
-alter table img change st state char default 'Y' null;
+# 0426 - 추가사항
+
+first_date 기본값 null값
+이미지 테이블 변경
+판매카테고리 전체 수정
