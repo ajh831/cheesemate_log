@@ -6,6 +6,10 @@
 - 로그에 브런치만들기
 - 커뮤랑 판매글 부분 이미지 연결시켜서 디비 등록
 
-ALTER TABLE img ADD COLUMN tb_no INT;
+alter table img add tb_no INT NOT NULL after tb_name;
+alter table img add imgtype varchar(10) NOT NULL after tb_no;
+alter table img modify u_name varchar(255) not null;
+alter table img modify o_name varchar(255) not null;
+alter table img modify e_name varchar(255) not null;
 
 오늘 에러
