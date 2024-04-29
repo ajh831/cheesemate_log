@@ -753,7 +753,7 @@ CREATE TABLE `mail` (
   KEY `ad_id` (`ad_id`),
   KEY `u_i_cd` (`u_i_cd`),
   CONSTRAINT `mail_ibfk_1` FOREIGN KEY (`ad_id`) REFERENCES `administer` (`id`),
-  CONSTRAINT `mail_ibfk_2` FOREIGN KEY (`u_i_cd`) REFERENCES `mail_classify` (`u_i_cd`)
+  CONSTRAINT `mail_ibfk_2` FOREIGN KEY (`u_i_cd`) REFERENCES `Mail_classify` (`u_i_cd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='메일 쪽지';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -816,7 +816,7 @@ CREATE TABLE `mail_recode` (
   `last_id` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`ur_id`,`em_no`),
   KEY `em_no` (`em_no`),
-  CONSTRAINT `mail_recode_ibfk_1` FOREIGN KEY (`em_no`) REFERENCES `Mail` (`em_no`),
+  CONSTRAINT `mail_recode_ibfk_1` FOREIGN KEY (`em_no`) REFERENCES `mail` (`em_no`),
   CONSTRAINT `mail_recode_ibfk_2` FOREIGN KEY (`ur_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='메일 발송 이력';
 /*!40101 SET character_set_client = @saved_cs_client */;
