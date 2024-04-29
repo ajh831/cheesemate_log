@@ -4,6 +4,9 @@
 
 - [:loudspeaker: 0422 공지사항](#0422-공지사항)
 - [:loudspeaker: 0423 공지사항](#0423-공지사항)
+- [:loudspeaker: 0423 공지사항](#0424-공지사항)
+- [:loudspeaker: 0423 공지사항](#0426-공지사항)
+- [:loudspeaker: 0423 공지사항](#0429-공지사항)
 
 <br>
 
@@ -112,12 +115,52 @@ origin  https://github.com/[본인깃id]/teamlog.git (push)
    - hoisting을 h_date로 변경
      - alter table hoisting_history change hoisting h_date timestamp;
 
+<br>
+
 # 0424-공지사항
 
 1. first_id - null 값 허용으로 변경
 
-# 0426 - 추가사항
+<br>
+
+# 0426-추가사항
 
 first_date 기본값 null값
 이미지 테이블 변경
 판매카테고리 전체 수정
+
+<br>
+
+# 0429-공지사항
+실행 부탁드려요~
+
+
+```
+alter table sale_history
+    modify addr_name varchar(100) not null;
+
+alter table sale_history
+    modify pickup_addr_name varchar(100) null;
+
+alter table sale_history
+    modify detail_addr text null;
+
+alter table biding
+    add bid_state char default 'Y' null after reason;
+
+alter table biding_history
+    drop column cx_date;
+
+alter table biding_history
+    add bid_state char not null comment '신청/취소 상태' after reason;
+
+alter table biding_history
+    modify bid_date timestamp not null comment '신청/취소한 일자';
+
+
+alter table biding_history
+    modify bid_state char not null comment '신청/취소 상태' after reason;
+
+alter table biding_history
+    modify bid_date timestamp not null comment '신청/취소한 일자';
+```
