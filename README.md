@@ -132,6 +132,8 @@ first_date 기본값 null값
 <br>
 
 # 0429-공지사항
+실행 부탁드려요~
+
 
 ```
 alter table sale_history
