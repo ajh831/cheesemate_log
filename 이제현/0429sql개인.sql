@@ -87,3 +87,34 @@ select * , (select concat(i.file_rt, '/', i.u_name, i.o_name, i.e_name) str
 from img i, sale s, sale_img si
 where si.sal_no = s.no and si.img_no = i.no and s.no = 126 and i.imgtype = 's' and i.state = 'Y') filert
 from sale
+
+
+SELECT *,
+       (
+           SELECT GROUP_CONCAT(CONCAT(i.file_rt, '/', i.u_name, i.o_name, i.e_name))
+           FROM img i, sale_img si
+           WHERE si.sal_no = s.no
+             AND si.img_no = i.no
+             AND i.imgtype = 's'
+             AND i.state = 'Y'
+       ) AS filert
+FROM sale s;
+
+INSERT INTO event(evt_cd, active_s_cd, title, contents, s_date, e_date, img_no, prize, ad_id)
+values('N', 'P', '3월 신규 유저 환영 이벤트', '신규 유저 중 30분을 추첨하여 스타벅스 기프티콘을 드립니다.', '2024/03/01', '2024/03/31', 301,'스타벅스 기프티콘','admin001');
+
+SELECT e.*,
+       CONCAT(i.file_rt, '/', i.u_name, i.o_name, i.e_name) AS filert
+FROM event e LEFT JOIN img i ON e.img_no = i.no
+WHERE i.state = 'Y';
+
+
+SELECT e.*,
+       CONCAT(i.file_rt, '/', i.u_name, i.o_name, i.e_name) AS filert
+FROM user_info e LEFT JOIN img i ON e.img_no = i.no
+WHERE i.state = 'Y' and e.ur_id = 'user123';
+
+SELECT CONCAT(i.file_rt, '/', i.u_name, i.o_name, i.e_name)
+FROM img i, event e
+WHERE e.img_no = i.no
+  AND i.state = 'Y';
