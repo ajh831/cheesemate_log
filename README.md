@@ -4,9 +4,10 @@
 
 - [:loudspeaker: 0422 공지사항](#0422-공지사항)
 - [:loudspeaker: 0423 공지사항](#0423-공지사항)
-- [:loudspeaker: 0423 공지사항](#0424-공지사항)
-- [:loudspeaker: 0423 공지사항](#0426-공지사항)
-- [:loudspeaker: 0423 공지사항](#0429-공지사항)
+- [:loudspeaker: 0424 공지사항](#0424-공지사항)
+- [:loudspeaker: 0426 공지사항](#0426-공지사항)
+- [:loudspeaker: 0429 공지사항](#0429-공지사항)
+- [:loudspeaker: 0430 팀회의](#0429-팀회의)
 
 <br>
 
@@ -164,3 +165,23 @@ alter table biding_history
 alter table biding_history
     modify bid_date timestamp not null comment '신청/취소한 일자';
 ```
+
+# 0430-팀회의
+1. 회의
+날짜를 정해두고 코드 발표시간 갖기(이번주 목 or 금)
+- 안재헌, 진정훈 한데까지만 보고
+- git commit 자주하기
+
+2. 2차 개발 발표
+주마다 점검시간 갖기(월)
+
+3. sql
+- 이미지를 쪼갠다
+- - join하지 않고 select하는 것으로
+
+- join 사용하는 경우, subquery 사용하는 경우 고려하기
+
+4. 시스템 컬럼
+- first, last insert할 때 4개 다 넣기
+- update할 때는 last만
+- 날짜는 now()로 default 하면 됨
