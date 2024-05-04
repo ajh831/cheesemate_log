@@ -23,7 +23,10 @@ create table img_group
 );
 
 // group_id 추가 컬럼
-alter table sale
+alter table community_board
+    add img_full_rt text not null;
+
+alter table community_board
     add group_no int null;
 
 //필요테이블 외래키 맺기
