@@ -58,5 +58,3 @@ alter table tag
 alter table tag
     auto_increment = 1;
 
-alter table tag
-    change contents t_contents varchar(25) null;
