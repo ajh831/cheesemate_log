@@ -192,7 +192,7 @@ alter table biding_history
 
 # 0502
 
-<p style="font-size:24px; font-weight='bold'; color='red';">서비스 단에서 예외처리할시 음수처리 꼭 필수</p>
+<p style="font-size:24px; font-weight='bold'; color='red';">서비스 단에서 예외처리할시 음수처리 꼭 필수</p><br>
 - 팀 발표 - 5월7일(화) PM : 11:00
 - Mockito : https://indigo-continent-753.notion.site/Mock-63709cb6242949758d9db8cc785d1448?pvs=4
 - 세션관련 내일 회의하기
