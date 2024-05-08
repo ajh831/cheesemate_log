@@ -4,7 +4,7 @@
 
 - hoisting_hoistory 테이블
 
-테이블명 변경 ; rename table hoisting_history to hoisting;
+테이블명 변경 : rename table hoisting_history to hoisting;
 컬럼명 변경 :
 alter table hoisting
     change sal_id_cd sal_i_cd varchar(25) not null;
@@ -57,4 +57,22 @@ alter table tag
 
 alter table tag
     auto_increment = 1;
+
+-- 1. 외래 키 제약 조건 제거
+alter table sale_tag drop foreign key FK_sale_TO_sale_tag_1;
+alter table sale_tag drop foreign key FK_tag_TO_sal_tag_1;
+
+-- 2. PRIMARY 키 제거
+alter table sale_tag drop primary key;
+
+-- 3. 기존 PRIMARY 키에 맞는 새로운 PRIMARY 키 추가
+alter table sale_tag add primary key (sal_no, tag_no);
+
+-- 4. 외래 키 제약 조건 다시 추가
+alter table sale_tag add constraint FK_sale_TO_sale_tag_1 foreign key (sal_no) references sale (no);
+alter table sale_tag add constraint FK_tag_TO_sal_tag_1 foreign key (tag_no) references tag (no);
+
+
+
+
 
