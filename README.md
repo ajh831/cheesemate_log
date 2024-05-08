@@ -196,3 +196,9 @@ alter table biding_history
 - 팀 발표 - 5월7일(화) PM : 11:00
 - Mockito : https://indigo-continent-753.notion.site/Mock-63709cb6242949758d9db8cc785d1448?pvs=4
 - 세션관련 내일 회의하기
+
+# 0508
+
+스프링부트 참고자료 : <a href="https://github.com/team-pepero/top-casting-be?tab=readme-ov-file">낚시 사이트임</a>
+0509 - 김경식강사님의 ajax 강의 오후 2시
+@ControllerAdvice - notion
