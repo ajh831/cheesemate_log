@@ -81,3 +81,11 @@ truncate chat_msg;
 
 select * from chat_room;
 select * from chat_msg;
+
+select *
+from chat_room
+where (seller_id = 'user1' or buyer_id = 'user1') and seller_state = 'Y' and buyer_state = 'Y';
+
+select *
+from chat_room
+where sale_no = 523 and buyer_id = 'user123';
