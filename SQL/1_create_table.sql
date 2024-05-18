@@ -367,7 +367,7 @@ CREATE TABLE `community_tag` (
                                  `first_id` varchar(25) NOT NULL,
                                  `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                  `last_id` varchar(25) NOT NULL,
-                                 PRIMARY KEY (`post_no, tag_no`),
+                                 PRIMARY KEY (`post_no`, `tag_no`),
                                  KEY `FK_tag_TO_community_tag_1` (`tag_no`),
                                  CONSTRAINT `FK_post_TO_community_tag_1` FOREIGN KEY (`post_no`) REFERENCES `community_board` (`addr_no`),
                                  CONSTRAINT `FK_tag_TO_community_tag_1` FOREIGN KEY (`tag_no`) REFERENCES `tag` (`no`)
@@ -539,7 +539,7 @@ CREATE TABLE `mail_recode` (
                                `last_id` varchar(25) NOT NULL,
                                PRIMARY KEY (`ur_id`,`em_no`),
                                KEY `em_no` (`em_no`),
-                               CONSTRAINT `mail_recode_ibfk_1` FOREIGN KEY (`em_no`) REFERENCES `Mail` (`em_no`),
+                               CONSTRAINT `mail_recode_ibfk_1` FOREIGN KEY (`em_no`) REFERENCES `mail` (`em_no`),
                                CONSTRAINT `mail_recode_ibfk_2` FOREIGN KEY (`ur_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='메일 발송 이력';
 
@@ -791,4 +791,3 @@ CREATE TABLE `user_modify_history` (
                                        KEY `ur_id` (`ur_id`),
                                        CONSTRAINT `user_modify_history_ibfk_1` FOREIGN KEY (`ur_id`) REFERENCES `administer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
