@@ -61,7 +61,7 @@ CREATE TABLE `administer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `addr_cd` (
-                           `no` bigint NOT NULL,
+                           `no` bigint NOT NULL AUTO_INCREMENT,
                            `ur_id` varchar(25) NOT NULL,
                            `addr_cd` varchar(8) NOT NULL COMMENT 'AUTOx',
                            `addr_name` varchar(100) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE `addr_cd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `admin_login_history` (
-                                       `no` bigint NOT NULL,
+                                       `no` bigint NOT NULL AUTO_INCREMENT,
                                        `ad_id` varchar(25) NOT NULL,
                                        `login_date` timestamp NOT NULL,
                                        `first_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -90,8 +90,9 @@ CREATE TABLE `admin_login_history` (
                                        CONSTRAINT `admin_login_history_ibfk_1` FOREIGN KEY (`ad_id`) REFERENCES `administer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 CREATE TABLE `admin_modify_history` (
-                                        `no` bigint NOT NULL,
+                                        `no` bigint NOT NULL  AUTO_INCREMENT,
                                         `ad_id` varchar(25) NOT NULL,
                                         `pw` varchar(200) DEFAULT NULL,
                                         `m_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -224,7 +225,7 @@ CREATE TABLE `biding_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `blacklist` (
-                             `no` bigint NOT NULL,
+                             `no` bigint NOT NULL AUTO_INCREMENT,
                              `ur_id` varchar(25) NOT NULL,
                              `block_ur_id` varchar(25) DEFAULT NULL,
                              `state` char(1) DEFAULT 'N' COMMENT '차단상태 | Y : 차단 | N : 차단해제',
@@ -236,6 +237,7 @@ CREATE TABLE `blacklist` (
                              KEY `ur_id` (`ur_id`),
                              CONSTRAINT `blacklist_ibfk_1` FOREIGN KEY (`ur_id`) REFERENCES `administer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 CREATE TABLE `chat_room` (
                              `no` bigint NOT NULL AUTO_INCREMENT,
@@ -365,7 +367,7 @@ CREATE TABLE `community_tag` (
                                  `first_id` varchar(25) NOT NULL,
                                  `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                  `last_id` varchar(25) NOT NULL,
-                                 PRIMARY KEY (`post_no`),
+                                 PRIMARY KEY (`post_no, tag_no`),
                                  KEY `FK_tag_TO_community_tag_1` (`tag_no`),
                                  CONSTRAINT `FK_post_TO_community_tag_1` FOREIGN KEY (`post_no`) REFERENCES `community_board` (`addr_no`),
                                  CONSTRAINT `FK_tag_TO_community_tag_1` FOREIGN KEY (`tag_no`) REFERENCES `tag` (`no`)
@@ -478,8 +480,7 @@ CREATE TABLE `img_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `jjim` (
-                        `sal_no` bigint NOT NULL,
-                        `addr_cd` varchar(8) NOT NULL,
+                        `no` bigint NOT NULL,
                         `buyer_id` varchar(25) NOT NULL,
                         `buyer_nick` varchar(20) NOT NULL,
                         `r_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -487,14 +488,13 @@ CREATE TABLE `jjim` (
                         `first_id` varchar(25) NOT NULL,
                         `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                         `last_id` varchar(25) NOT NULL,
-                        PRIMARY KEY (`sal_no`,`addr_cd`,`buyer_id`),
-                        KEY `FK_sale_TO_jjim_2` (`addr_cd`),
+                        PRIMARY KEY (`no`,`buyer_id`),
                         KEY `FK_user_TO_jjim_1` (`buyer_id`),
-                        CONSTRAINT `FK_sale_TO_jjim_1` FOREIGN KEY (`sal_no`) REFERENCES `sale` (`no`),
+                        CONSTRAINT `FK_sale_TO_jjim_1` FOREIGN KEY (`no`) REFERENCES `sale` (`no`),
                         CONSTRAINT `FK_user_TO_jjim_1` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `Mail_classify` (
+CREATE TABLE `mail_classify` (
                                  `u_i_cd` varchar(10) NOT NULL DEFAULT 'A' COMMENT '신규 회원인지 전체 회원인지 구분',
                                  `name` varchar(20) DEFAULT NULL,
                                  `req` varchar(255) DEFAULT NULL COMMENT 'Reqirement',
@@ -556,8 +556,8 @@ CREATE TABLE `question_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='카테고리 테이블';
 
 CREATE TABLE `qnalist_board` (
-                                 `no` int NOT NULL AUTO_INCREMENT,
-                                 `que_i_cd` bigint DEFAULT NULL,
+                                 `no` bigint NOT NULL AUTO_INCREMENT,
+                                 `que_i_cd` bigint NOT NULL,
                                  `title` varchar(255) NOT NULL,
                                  `contents` text NOT NULL,
                                  `ad_id` varchar(25) DEFAULT NULL,
@@ -587,7 +587,7 @@ CREATE TABLE `qty_conditions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `question_board` (
-                                  `no` int NOT NULL AUTO_INCREMENT,
+                                  `no` bigint NOT NULL AUTO_INCREMENT,
                                   `ur_id` varchar(25) NOT NULL,
                                   `q_s_cd` varchar(10) NOT NULL,
                                   `que_i_cd` bigint NOT NULL,
@@ -638,7 +638,7 @@ CREATE TABLE `review_comment` (
                                   `buy_id` varchar(25) NOT NULL,
                                   `buy_nick` varchar(20) NOT NULL,
                                   `contents` text,
-                                  `like_cnt` int DEFAULT '0',
+                                  `reviewStar` int DEFAULT '0',
                                   `r_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
                                   `m_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
                                   `ur_state` char(1) DEFAULT 'Y',
@@ -661,11 +661,11 @@ CREATE TABLE `sale_history` (
                                 `seller_nick` varchar(20) NOT NULL,
                                 `sal_i_cd` varchar(9) NOT NULL,
                                 `sal_name` varchar(20) NOT NULL,
-                                `group_no` int NOT NULL,
-                                `img_full_rt` text NOT NULL,
+                                `group_no` int NULL,
+                                `img_full_rt` text NULL,
                                 `title` varchar(100) NOT NULL,
                                 `contents` text NOT NULL,
-                                `pro_s_cd` varchar(10) DEFAULT NULL COMMENT '제품상태코드',
+                                `pro_s_cd` varchar(10) NOT NULL COMMENT '제품상태코드',
                                 `tx_s_cd` varchar(10) NOT NULL COMMENT '거래방식 코드',
                                 `trade_s_cd_1` varchar(10) NOT NULL,
                                 `trade_s_cd_2` varchar(10) DEFAULT NULL,
@@ -764,7 +764,7 @@ CREATE TABLE `user_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `user_login_history` (
-                                      `no` bigint NOT NULL,
+                                      `no` bigint NOT NULL AUTO_INCREMENT,
                                       `ur_id` varchar(25) NOT NULL,
                                       `login_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
                                       `first_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -777,7 +777,7 @@ CREATE TABLE `user_login_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `user_modify_history` (
-                                       `no` bigint NOT NULL,
+                                       `no` bigint NOT NULL AUTO_INCREMENT,
                                        `m_s_cd` varchar(10) DEFAULT NULL COMMENT '정보변경사유 | PWC : 비밀번호변경 | PHC : 전화번호변경',
                                        `ur_id` varchar(25) NOT NULL,
                                        `pw` varchar(200) DEFAULT NULL,
@@ -790,5 +790,5 @@ CREATE TABLE `user_modify_history` (
                                        PRIMARY KEY (`no`),
                                        KEY `ur_id` (`ur_id`),
                                        CONSTRAINT `user_modify_history_ibfk_1` FOREIGN KEY (`ur_id`) REFERENCES `administer` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
