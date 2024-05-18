@@ -177,3 +177,43 @@ create table hoisting
 
 create index hoisting_addr_cd_sal_no_sn_index
     on hoisting (addr_cd, sal_no, no);
+
+
+
+
+CREATE TABLE `community_board` (
+  `no` bigint NOT NULL AUTO_INCREMENT,
+  `ur_id` varchar(25) NOT NULL,
+  `addr_cd` varchar(8) NOT NULL,
+  `addr_no` bigint NOT NULL,
+  `commu_cd` varchar(10) NOT NULL,
+  `commu_name` varchar(100) DEFAULT NULL,
+  `addr_name` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `contents` text NOT NULL,
+  `nick` varchar(20) NOT NULL,
+  `img_full_rt` text,
+  `group_no` int DEFAULT NULL,
+  `r_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `m_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `like_cnt` int DEFAULT '0',
+  `view_cnt` int DEFAULT '0',
+  `ur_state` char(1) DEFAULT 'y',
+  `comment_count` int DEFAULT '0',
+  `ad_state` char(1) DEFAULT 'n',
+  `first_date` timestamp NULL DEFAULT NULL,
+  `first_id` varchar(10) DEFAULT NULL,
+  `last_date` timestamp NULL DEFAULT NULL,
+  `last_id` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`no`),
+  KEY `post_ibfk_1` (`ur_id`),
+  KEY `post_ibfk_2` (`addr_cd`),
+  KEY `post_ibfk_3` (`addr_no`),
+  KEY `commu_cd` (`commu_cd`),
+  KEY `community_board_groupno_fk` (`group_no`),
+  CONSTRAINT `community_board_groupno_fk` FOREIGN KEY (`group_no`) REFERENCES `img_group` (`group_no`),
+  CONSTRAINT `community_board_ibfk_1` FOREIGN KEY (`ur_id`) REFERENCES `addr_cd` (`ur_id`),
+  CONSTRAINT `community_board_ibfk_2` FOREIGN KEY (`addr_cd`) REFERENCES `addr_cd` (`addr_cd`),
+  CONSTRAINT `community_board_ibfk_3` FOREIGN KEY (`addr_no`) REFERENCES `addr_cd` (`no`),
+  CONSTRAINT `community_board_ibfk_4` FOREIGN KEY (`commu_cd`) REFERENCES `commu` (`commu_cd`)
+) ENGINE=InnoDB AUTO_INCREMENT=457 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
