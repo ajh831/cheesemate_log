@@ -61,7 +61,7 @@ CREATE TABLE `administer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `addr_cd` (
-                           `no` bigint NOT NULL,
+                           `no` bigint NOT NULL AUTO_INCREMENT,
                            `ur_id` varchar(25) NOT NULL,
                            `addr_cd` varchar(8) NOT NULL COMMENT 'AUTOx',
                            `addr_name` varchar(100) NOT NULL,
