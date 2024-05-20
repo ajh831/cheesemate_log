@@ -157,6 +157,7 @@ CREATE TABLE `sale` (
                         `bid_cnt` int DEFAULT '0',
                         `ur_state` char(1) DEFAULT 'Y' COMMENT 'Y: 사용/N: 삭제',
                         `ad_state` char(1) DEFAULT 'N' COMMENT 'Y: 게시글 유지/N: 게시글 삭제',
+                        `rv_state` char(1) DEFAULT 'Y',
                         `first_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                         `first_id` varchar(25) NOT NULL,
                         `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -416,6 +417,7 @@ CREATE TABLE `hoisting` (
                             `addr_name` varchar(20) NOT NULL,
                             `seller_id` varchar(25) NOT NULL,
                             `sal_i_cd` varchar(25) NOT NULL,
+                            `sal_name` varchar(20) NOT NULL,
                             `h_date` timestamp NOT NULL,
                             `first_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                             `first_id` varchar(25) NOT NULL,
@@ -426,25 +428,6 @@ CREATE TABLE `hoisting` (
                             KEY `FK_sale_TO_hoisting_2` (`sal_no`),
                             CONSTRAINT `FK_sale_TO_hoisting_1` FOREIGN KEY (`addr_cd`) REFERENCES `sale` (`addr_cd`),
                             CONSTRAINT `FK_sale_TO_hoisting_2` FOREIGN KEY (`sal_no`) REFERENCES `sale` (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-CREATE TABLE `hoisting_history` (
-                                    `no` bigint NOT NULL AUTO_INCREMENT,
-                                    `sal_no` bigint NOT NULL,
-                                    `addr_cd` varchar(8) NOT NULL,
-                                    `addr_name` varchar(20) NOT NULL,
-                                    `seller_id` varchar(25) NOT NULL,
-                                    `sal_id_cd` varchar(25) NOT NULL,
-                                    `h_date` timestamp NOT NULL,
-                                    `first_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                                    `first_id` varchar(25) NOT NULL,
-                                    `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                                    `last_id` varchar(25) NOT NULL,
-                                    PRIMARY KEY (`no`,`sal_no`),
-                                    KEY `FK_sale_TO_hoisting_history_2` (`sal_no`),
-                                    KEY `hoisting_history_addr_cd_sal_no_sn_index` (`addr_cd`,`sal_no`,`no`),
-                                    CONSTRAINT `FK_sale_TO_hoisting_history_1` FOREIGN KEY (`addr_cd`) REFERENCES `sale` (`addr_cd`),
-                                    CONSTRAINT `FK_sale_TO_hoisting_history_2` FOREIGN KEY (`sal_no`) REFERENCES `sale` (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `img` (
