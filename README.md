@@ -220,3 +220,12 @@ alter table biding_history
 
 - 0509 - 김경식강사님의 ajax 강의 오후 2시
 @ControllerAdvice - notion
+
+# 0520
+ImgRepository 안에 파일 넣어주기 
+
+INSERT INTO img (group_no, imgtype, file_rt, u_name, o_name, e_name, img_full_rt, w_size, h_size, r_date, state, first_date, first_id, last_date, last_id) VALUES (0, 'home', 'img', 'store.png', 'store', '.png', 'img/store.png', 0, 0, '2024-05-19 21:18:58', 'Y', '2024-05-19 21:18:58', 'admin', '2024-05-19 21:18:58', 'admin');
+INSERT INTO img (group_no, imgtype, file_rt, u_name, o_name, e_name, img_full_rt, w_size, h_size, r_date, state, first_date, first_id, last_date, last_id) VALUES (0, 'home', 'img', 'person.png', 'person', '.png', 'img/person.png', 0, 0, '2024-05-19 21:18:58', 'Y', '2024-05-19 21:18:58', 'admin', '2024-05-19 21:18:58', 'admin');
+INSERT INTO img (group_no, imgtype, file_rt, u_name, o_name, e_name, img_full_rt, w_size, h_size, r_date, state, first_date, first_id, last_date, last_id) VALUES (0, 'home', 'img', 'search.png', 'search', '.png', 'img/search.png', 0, 0, '2024-05-19 21:18:58', 'Y', '2024-05-19 21:18:58', 'admin', '2024-05-19 21:18:58', 'admin');
+INSERT INTO img (group_no, imgtype, file_rt, u_name, o_name, e_name, img_full_rt, w_size, h_size, r_date, state, first_date, first_id, last_date, last_id) VALUES (0, 'home', 'img', 'logo.png', 'logo', '.png', 'img/logo.png', 0, 0, '2024-05-19 21:18:58', 'Y', '2024-05-19 21:18:58', 'admin', '2024-05-19 21:18:58', 'admin');
+INSERT INTO img (group_no, imgtype, file_rt, u_name, o_name, e_name, img_full_rt, w_size, h_size, r_date, state, first_date, first_id, last_date, last_id) VALUES (0, 'home', 'img', 'chat.png', 'chat', '.png', 'img/chat.png', 0, 0, '2024-05-19 21:18:58', 'Y', '2024-05-19 21:18:58', 'admin', '2024-05-19 21:18:58', 'admin');
