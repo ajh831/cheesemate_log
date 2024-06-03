@@ -10,7 +10,7 @@
 - [:loudspeaker: 0502 팀회의](#0502-팀회의)
 - [:loudspeaker: 0503 팀회의](#0503-팀회의)
 - [:loudspeaker: 0508 팀회의](#0508-팀회의)
-- [:loudspeaker: 치즈메이트 README](https://github.com/wafflu/teamlog/blob/master/README.md)
+- [:loudspeaker: 치즈메이트 README](https://github.com/wafflu/teamlog/blob/master/소개용도.md)
 
 <br><br>
 
