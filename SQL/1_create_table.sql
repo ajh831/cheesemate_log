@@ -463,9 +463,9 @@ CREATE TABLE `img_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `jjim` (
-                        `no` bigint NOT NULL,
+                        `sal_no` bigint NOT NULL,
                         `buyer_id` varchar(25) NOT NULL,
-                        `buyer_nick` varchar(20) NOT NULL,
+                        `check_like` int DEFAULT '0',
                         `r_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
                         `first_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                         `first_id` varchar(25) NOT NULL,
