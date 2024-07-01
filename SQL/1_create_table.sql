@@ -471,9 +471,9 @@ CREATE TABLE `jjim` (
                         `first_id` varchar(25) NOT NULL,
                         `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                         `last_id` varchar(25) NOT NULL,
-                        PRIMARY KEY (`no`,`buyer_id`),
+                        PRIMARY KEY (`sal_no`,`buyer_id`),
                         KEY `FK_user_TO_jjim_1` (`buyer_id`),
-                        CONSTRAINT `FK_sale_TO_jjim_1` FOREIGN KEY (`no`) REFERENCES `sale` (`no`),
+                        CONSTRAINT `FK_sale_TO_jjim_1` FOREIGN KEY (`sal_no`) REFERENCES `sale` (`no`),
                         CONSTRAINT `FK_user_TO_jjim_1` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
